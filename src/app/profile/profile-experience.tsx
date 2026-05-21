@@ -57,7 +57,7 @@ const contributions = [
 ];
 
 const sections = [
-  { id: "profile", label: "Profile", icon: FiUser },
+  { id: "profile", label: "Perfil", icon: FiUser },
   { id: "contributions", label: "Aportaciones", icon: FiGift },
 ] satisfies Array<{ id: ProfileSection; label: string; icon: typeof FiUser }>;
 
@@ -92,6 +92,8 @@ export default function ProfileExperience() {
   }, [router]);
 
   const totalContributed = contributions.reduce((sum, contribution) => sum + contribution.amount, 0);
+  const hasPasswordConfirmation = newPassword.length > 0 && confirmPassword.length > 0;
+  const passwordsMatch = hasPasswordConfirmation && newPassword === confirmPassword;
 
   const handleSaveProfile = () => {
     const composedName = [firstName, lastName, secondLastName].map((value) => value.trim()).filter(Boolean).join(" ");
@@ -154,7 +156,7 @@ export default function ProfileExperience() {
           {activeSection === "profile" && (
             <article className="account-section-panel">
               <div className="account-section-heading">
-                <p className="section-kicker">Profile</p>
+                <p className="section-kicker">Perfil</p>
                 <h1>Información del usuario</h1>
                 <p>Administra tu información personal, correo de acceso y contraseña.</p>
               </div>
@@ -186,10 +188,10 @@ export default function ProfileExperience() {
                   <FiLock size={20} />
                   <div>
                     <h2>Cambiar contraseña</h2>
-                    <p>Por ahora es visual; cuando conectemos backend validará tu contraseña actual.</p>
                   </div>
                 </div>
-                <div className="profile-form-grid">
+
+                <div className="password-form-grid">
                   <label>
                     Contraseña actual
                     <input
@@ -210,18 +212,15 @@ export default function ProfileExperience() {
                       onChange={(event) => setConfirmPassword(event.target.value)}
                     />
                   </label>
-                  <label>
-                    Estado
-                    <input
-                      readOnly
-                      value={
-                        newPassword && confirmPassword && newPassword !== confirmPassword
-                          ? "Las contraseñas no coinciden"
-                          : "Lista para actualizar"
-                      }
-                    />
-                  </label>
                 </div>
+
+                {hasPasswordConfirmation && (
+                  <div className={`password-match-indicator ${passwordsMatch ? "match" : "mismatch"}`}>
+                    <span aria-hidden="true" />
+                    <p>{passwordsMatch ? "Las contraseñas coinciden" : "Las contraseñas no coinciden"}</p>
+                  </div>
+                )}
+
                 <button type="button" className="account-secondary-action">
                   Actualizar contraseña
                 </button>

@@ -22,6 +22,7 @@ const rewards = [
 
 const campaigns = [
   {
+    slug: "casa-nube",
     hotel: "Casa Nube",
     place: "Valle de Bravo",
     goal: "$480,000 MXN",
@@ -29,6 +30,7 @@ const campaigns = [
     reward: "20% de descuento y desayuno para dos",
   },
   {
+    slug: "luz-de-agua",
     hotel: "Luz de Agua",
     place: "Bacalar",
     goal: "$620,000 MXN",
@@ -36,6 +38,7 @@ const campaigns = [
     reward: "Cena de autor frente a la laguna",
   },
   {
+    slug: "monte-clara",
     hotel: "Monte Clara",
     place: "San Miguel de Allende",
     goal: "$390,000 MXN",
@@ -58,9 +61,15 @@ export default function Home() {
             <a href="#campanas" className="primary-link">Explorar campañas</a>
             <a href="#como-funciona" className="secondary-link">Cómo funciona</a>
           </div>
+          <div className="hero-proof-points" aria-label="Beneficios principales">
+            <span>Hoteles boutique</span>
+            <span>Metas solares claras</span>
+            <span>Recompensas para viajar</span>
+          </div>
         </div>
 
         <div className="hero-visual" aria-label="Hotel boutique sostenible con energía solar">
+          <div className="hotel-shape" aria-hidden="true" />
           <div className="sun-mark" />
           <div className="hotel-card">
             <span>Hotel boutique</span>
@@ -130,6 +139,9 @@ export default function Home() {
                 </div>
               </dl>
               <p className="reward">{campaign.reward}</p>
+              <a href={`/campaigns/${campaign.slug}`} className="campaign-card-link">
+                Ver campaña
+              </a>
             </article>
           ))}
         </div>

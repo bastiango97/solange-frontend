@@ -32,23 +32,24 @@ a {
 }
 
 main {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .hero-section {
-  min-height: calc(100vh - 64px);
-  padding: 132px clamp(20px, 5vw, 72px) 64px;
+  min-height: min(820px, calc(100vh - 64px));
+  padding: 118px clamp(20px, 5vw, 72px) 58px;
   display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
-  gap: clamp(32px, 6vw, 96px);
+  grid-template-columns: minmax(360px, 0.92fr) minmax(460px, 1.08fr);
+  gap: clamp(36px, 5vw, 78px);
   align-items: center;
   background:
-    linear-gradient(120deg, rgba(250, 250, 250, 0.96), rgba(232, 240, 231, 0.82)),
-    radial-gradient(circle at 82% 22%, rgba(231, 185, 75, 0.28), transparent 30%);
+    linear-gradient(120deg, rgba(250, 250, 250, 0.98), rgba(232, 240, 231, 0.74)),
+    radial-gradient(circle at 82% 24%, rgba(231, 185, 75, 0.22), transparent 30%);
 }
 
 .hero-copy {
-  max-width: 720px;
+  max-width: 640px;
+  min-width: 0;
 }
 
 .eyebrow,
@@ -74,16 +75,18 @@ main {
 }
 
 .hero-copy h1 {
-  max-width: 760px;
-  font-size: clamp(3.4rem, 8vw, 7.4rem);
+  max-width: 640px;
+  font-size: clamp(3.35rem, 6.2vw, 6.35rem);
+  line-height: 0.98;
+  text-wrap: balance;
 }
 
 .hero-text {
-  max-width: 650px;
-  margin: 26px 0 0;
+  max-width: 590px;
+  margin: 24px 0 0;
   color: #394136;
-  font-size: clamp(1.05rem, 2vw, 1.28rem);
-  line-height: 1.72;
+  font-size: clamp(1.02rem, 1.45vw, 1.2rem);
+  line-height: 1.68;
 }
 
 .hero-actions {
@@ -91,6 +94,23 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
+}
+
+.hero-proof-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.hero-proof-points span {
+  border: 1px solid rgba(45, 110, 78, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.68);
+  padding: 8px 11px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
 }
 
 .primary-link,
@@ -117,23 +137,34 @@ main {
 
 .hero-visual {
   position: relative;
-  min-height: 540px;
+  min-height: clamp(430px, 52vw, 560px);
+  aspect-ratio: 1.12;
+  justify-self: stretch;
   border-radius: 8px;
   overflow: hidden;
   background:
-    linear-gradient(160deg, rgba(21, 23, 19, 0.18), rgba(21, 23, 19, 0.04)),
-    linear-gradient(150deg, #f7f4e9 0%, #dce8da 46%, #9db18e 100%);
-  box-shadow: 0 36px 84px rgba(25, 43, 29, 0.18);
+    linear-gradient(160deg, rgba(21, 23, 19, 0.12), rgba(21, 23, 19, 0.02)),
+    linear-gradient(150deg, #f7f4e9 0%, #dce8da 48%, #9fb492 100%);
+  box-shadow: 0 30px 72px rgba(25, 43, 29, 0.16);
 }
 
 .hero-visual::before {
   content: "";
   position: absolute;
-  inset: 12% 8% 26% 20%;
+  inset: 0;
+  background:
+    radial-gradient(circle at 84% 18%, rgba(231, 185, 75, 0.2), transparent 18%),
+    linear-gradient(180deg, rgba(250, 250, 250, 0.16), transparent 46%);
+}
+
+.hotel-shape {
+  position: absolute;
+  inset: 12% 7% 26% 18%;
+  z-index: 1;
   border-radius: 8px 8px 0 0;
   background:
     linear-gradient(90deg, rgba(250, 250, 250, 0.88), rgba(255, 255, 255, 0.58)),
-    repeating-linear-gradient(90deg, transparent 0 64px, rgba(45, 110, 78, 0.16) 64px 66px);
+    repeating-linear-gradient(90deg, transparent 0 58px, rgba(45, 110, 78, 0.12) 58px 60px);
   clip-path: polygon(0 34%, 55% 0, 100% 26%, 100% 100%, 0 100%);
 }
 
@@ -149,13 +180,14 @@ main {
 
 .sun-mark {
   position: absolute;
-  top: 46px;
-  right: 48px;
-  width: 118px;
+  top: clamp(34px, 6vw, 54px);
+  right: clamp(34px, 6vw, 58px);
+  z-index: 2;
+  width: clamp(88px, 10vw, 120px);
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--solar-gold);
-  box-shadow: 0 0 0 18px rgba(231, 185, 75, 0.2);
+  box-shadow: 0 0 0 22px rgba(231, 185, 75, 0.18);
 }
 
 .hotel-card,
@@ -170,10 +202,10 @@ main {
 }
 
 .hotel-card {
-  left: 28px;
-  bottom: 34px;
-  max-width: 265px;
-  padding: 22px;
+  left: clamp(22px, 4vw, 34px);
+  bottom: clamp(24px, 4vw, 38px);
+  max-width: min(315px, 48%);
+  padding: clamp(18px, 2.3vw, 24px);
 }
 
 .hotel-card span,
@@ -189,28 +221,29 @@ main {
   margin-top: 7px;
   color: var(--ink);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.65rem;
+  font-size: clamp(1.35rem, 2.2vw, 1.9rem);
   line-height: 1.1;
 }
 
 .impact-card {
-  right: 30px;
-  top: 238px;
-  padding: 18px 22px;
+  right: clamp(24px, 4vw, 36px);
+  top: 45%;
+  transform: translateY(-50%);
+  padding: clamp(17px, 2vw, 22px) clamp(20px, 2.4vw, 28px);
 }
 
 .impact-card strong {
   color: var(--conscience-green);
-  font-size: 2.4rem;
+  font-size: clamp(2.1rem, 3.4vw, 3rem);
 }
 
 .solar-panel-grid {
   position: absolute;
   z-index: 2;
-  right: 44px;
-  bottom: 44px;
+  right: clamp(32px, 6vw, 58px);
+  bottom: clamp(30px, 5vw, 48px);
   display: grid;
-  width: min(42%, 250px);
+  width: min(38%, 285px);
   grid-template-columns: repeat(4, 1fr);
   gap: 6px;
   transform: perspective(400px) rotateX(56deg) rotateZ(-18deg);
@@ -277,6 +310,8 @@ main {
 
 .step-card,
 .campaign-card {
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #fff;
@@ -343,6 +378,25 @@ main {
   margin-top: 22px !important;
   padding-top: 20px;
   border-top: 1px solid var(--line);
+}
+
+.campaign-card-link {
+  display: inline-flex;
+  min-height: 44px;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  margin-top: 22px;
+  border-radius: 6px;
+  background: var(--conscience-green);
+  color: #fff;
+  font-weight: 900;
+  padding: 0 18px;
+  box-shadow: 0 14px 24px rgba(45, 110, 78, 0.16);
+}
+
+.campaign-card-link:hover {
+  background: #245d41;
 }
 
 .rewards-section {
@@ -462,7 +516,7 @@ main {
 }
 
 .search-hero {
-  padding: 124px clamp(20px, 5vw, 72px) 38px;
+  padding: 104px clamp(20px, 5vw, 72px) 30px;
   border-bottom: 1px solid var(--line);
   background:
     linear-gradient(120deg, rgba(250, 250, 250, 0.98), rgba(232, 240, 231, 0.78)),
@@ -470,28 +524,29 @@ main {
 }
 
 .search-hero h1 {
-  max-width: 930px;
+  max-width: 780px;
   margin: 0;
   color: var(--ink);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.45rem, 5vw, 5.2rem);
+  font-size: clamp(2.25rem, 4vw, 4.2rem);
   font-weight: 600;
-  line-height: 1.03;
+  line-height: 1.04;
+  text-wrap: balance;
 }
 
 .search-hero p:last-child {
-  max-width: 760px;
-  margin: 22px 0 0;
+  max-width: 710px;
+  margin: 18px 0 0;
   color: #394136;
-  font-size: 1.12rem;
-  line-height: 1.68;
+  font-size: 1rem;
+  line-height: 1.62;
 }
 
 .search-shell {
   display: grid;
   grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
   gap: 24px;
-  padding: 28px clamp(20px, 5vw, 72px) 72px;
+  padding: 24px clamp(20px, 5vw, 72px) 72px;
 }
 
 .filters-panel {
@@ -521,6 +576,10 @@ main {
 
 .multi-filter {
   margin-top: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
 }
 
 .multi-filter summary {
@@ -531,8 +590,6 @@ main {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
   background: #fafafa;
   padding: 10px 12px;
   color: var(--ink);
@@ -567,11 +624,9 @@ main {
 .multi-filter-options {
   display: grid;
   gap: 8px;
-  margin-top: 10px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
+  border-top: 1px solid var(--line);
   background: #fff;
-  padding: 10px;
+  padding: 10px 10px 12px;
 }
 
 .multi-filter-options label {
@@ -1189,6 +1244,7 @@ main {
   display: grid;
   grid-auto-columns: minmax(300px, 370px);
   grid-auto-flow: column;
+  align-items: stretch;
   gap: 14px;
   overflow-x: auto;
   padding: 2px 2px 12px;
@@ -1197,6 +1253,9 @@ main {
 }
 
 .tier-card {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
   scroll-snap-align: start;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -1246,7 +1305,7 @@ main {
 .tier-card ul {
   display: grid;
   gap: 9px;
-  margin: 18px 0 20px;
+  margin: 18px 0 24px;
   padding: 0;
   list-style: none;
 }
@@ -1268,6 +1327,7 @@ main {
 .tier-card button {
   min-height: 46px;
   width: 100%;
+  margin-top: auto;
   cursor: pointer;
   border: 0;
   border-radius: 6px;
@@ -1750,67 +1810,76 @@ main {
 }
 
 .account-section-panel {
-  max-width: 980px;
+  max-width: 1080px;
 }
 
 .account-section-heading {
-  max-width: 760px;
-  margin-bottom: 24px;
+  max-width: 720px;
+  margin-bottom: 26px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 22px;
 }
 
 .account-section-heading h1 {
   margin: 0;
   color: var(--ink);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.2rem, 4vw, 4rem);
+  font-size: clamp(2rem, 3vw, 3.25rem);
   font-weight: 600;
-  line-height: 1.05;
+  line-height: 1.06;
 }
 
 .account-section-heading p:not(.section-kicker) {
-  margin: 14px 0 0;
+  margin: 12px 0 0;
   color: var(--muted);
-  font-size: 1.03rem;
+  font-size: 0.98rem;
   line-height: 1.6;
 }
 
 .account-primary-action {
-  min-height: 46px;
-  margin-top: 18px;
+  min-height: 44px;
+  margin-top: 20px;
   cursor: pointer;
   border: 0;
   border-radius: 6px;
   background: var(--conscience-green);
   color: #fff;
   font: inherit;
+  font-size: 0.94rem;
   font-weight: 900;
-  padding: 0 18px;
+  padding: 0 20px;
+  box-shadow: 0 12px 24px rgba(45, 110, 78, 0.14);
 }
 
 .account-secondary-action {
   min-height: 44px;
-  margin-top: 16px;
+  margin-top: 18px;
   cursor: pointer;
   border: 1px solid rgba(45, 110, 78, 0.28);
   border-radius: 6px;
   background: #fff;
   color: var(--conscience-green);
   font: inherit;
+  font-size: 0.94rem;
   font-weight: 900;
-  padding: 0 18px;
+  padding: 0 20px;
 }
 
 .password-change-block {
   margin-top: 34px;
-  border-top: 1px solid var(--line);
-  padding-top: 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfcfa;
+  padding: clamp(20px, 3vw, 28px);
 }
 
 .password-change-heading {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 18px;
 }
 
 .password-change-heading svg {
@@ -1823,13 +1892,15 @@ main {
   margin: 0;
   color: var(--ink);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.8rem;
-  line-height: 1.1;
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  font-weight: 600;
+  line-height: 1.12;
 }
 
 .password-change-heading p {
-  margin: 8px 0 0;
+  margin: 7px 0 0;
   color: var(--muted);
+  font-size: 0.95rem;
   line-height: 1.55;
 }
 
@@ -1903,32 +1974,103 @@ main {
 .profile-form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  gap: 18px 16px;
 }
 
-.profile-form-grid label {
+.password-form-grid {
+  display: grid;
+  max-width: 680px;
+  gap: 16px;
+}
+
+.profile-form-grid label,
+.password-form-grid label {
   display: grid;
   gap: 8px;
+  color: #394136;
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.profile-form-grid input,
+.password-form-grid input {
+  min-height: 48px;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
   color: var(--ink);
+  font: inherit;
+  font-size: 0.96rem;
+  font-weight: 700;
+  outline: none;
+  padding: 0 14px;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+.profile-form-grid input:focus,
+.password-form-grid input:focus {
+  border-color: var(--conscience-green);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(45, 110, 78, 0.1);
+}
+
+.password-match-indicator {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 9px;
+  margin-top: 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  padding: 9px 12px;
+}
+
+.password-match-indicator span {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+}
+
+.password-match-indicator p {
+  margin: 0;
+  color: var(--muted);
   font-size: 0.88rem;
   font-weight: 900;
 }
 
-.profile-form-grid input {
-  min-height: 46px;
-  width: 100%;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: #fafafa;
-  color: var(--ink);
-  font: inherit;
-  outline: none;
-  padding: 0 12px;
+.password-match-indicator.match {
+  border-color: rgba(45, 110, 78, 0.22);
+  background: #f1f7f1;
 }
 
-.profile-form-grid input:focus {
-  border-color: var(--conscience-green);
-  background: #fff;
+.password-match-indicator.match span {
+  background: var(--conscience-green);
+  box-shadow: 0 0 0 4px rgba(45, 110, 78, 0.12);
+}
+
+.password-match-indicator.match p {
+  color: var(--conscience-green);
+}
+
+.password-match-indicator.mismatch {
+  border-color: rgba(163, 68, 47, 0.22);
+  background: #fff7f4;
+}
+
+.password-match-indicator.mismatch span {
+  background: #a3442f;
+  box-shadow: 0 0 0 4px rgba(163, 68, 47, 0.1);
+}
+
+.password-match-indicator.mismatch p {
+  color: #a3442f;
 }
 
 .profile-panel > button {
