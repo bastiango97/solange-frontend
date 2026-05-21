@@ -1,11 +1,11 @@
-import Navbar from "@/components/Navbar";
 import "@/app/globals.css";
+import Navbar from "@/components/Navbar";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body>
-        <Navbar /> {/* Se muestra en todas las páginas */}
+        <Navbar />
         {children}
       </body>
     </html>
